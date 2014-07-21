@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" >
+
+    <!--  <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:padding="25dip"
+        android:text="@string/welcome_note"
+        android:textColor="#cccccc"
+        android:textSize="21sp"
+        android:textStyle="normal" /> -->
+
+    <ImageView
+        android:id="@+id/image"
+        android:contentDescription="@string/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/i"
+        android:background="#000000"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:padding="110dip"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#cccccc"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="3dp" >
+
+        <!-- main page login button -->
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="login"
+            android:background="#ffffff"
+            android:text="@string/label_login" />
+
+        <!-- main page sign out button -->
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="logout"
+            android:background="#cccccc"
+            android:text="@string/label_logout" />
+        
+        <Button
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="home"
+            android:background="#ffffff"
+            android:text="@string/label_home" />
+    </LinearLayout>
+
+</LinearLayout>

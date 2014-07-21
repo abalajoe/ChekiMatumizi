@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <TextView android:id="@+id/product_label"
+  			android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			android:textStyle="normal"
+  			android:padding="10dip"
+  			android:textColor="#000000"/>  
+  			
+  <!-- NB: The @style/ListStyle attribute specifies the colors we are going to use for our 
+  			List View. The style is located in the styles.xml resource under the values directory. -->
+  <ListView android:id="@+id/SMSList" 
+			android:layout_height="wrap_content" 
+			android:layout_width="match_parent" 
+			android:layout_margin="2dip"
+			android:textStyle="normal"
+			style="@style/ListStyle" />
+</LinearLayout>

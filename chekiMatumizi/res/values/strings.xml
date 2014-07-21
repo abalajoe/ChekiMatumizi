@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="welcome_note">CHEKI-MATUMIZI</string>
+    <string name="app_name">CHEKI-MATUMIZI</string>
+    <string name="action_settings">Settings</string>
+    <string name="image">home image</string>
+    <string name="view_trans">View Transactions</string>
+    <string name="new_note">Create New Note</string>
+    <string name="home_page">Go back to Home Page</string>
+    <string name="show_sms">Show SMS</string>
+    <string name="transactions">TRANSACTIONS</string>
+    <string name="single_transaction">MESSAGE</string>
+    <string name="home_menu">CHEKI-MATUMIZI!</string>
+	<string name="label_login">Login / Sign Up</string>
+    <string name="label_logout">Sign Out</string>
+    <string name="label_home">Home</string>
+    <string name="error_creating_notestore">Error creating notestore</string>
+    <string name="note_saved">Note saved to Evernote</string>
+    <string name="error_saving_note">Error saving note</string>
+    <string name="title">Note Title</string>
+    <string name="content">Note Content</string>
+    <string name="label_save_button">Save</string>
+    <string name="label_select_notebook_button">Select Notebook</string>
+    <string name="CANT_LIST_APP_LNB">Can\'t select notebook: account can only access one linked notebook</string>
+    <string name="error_listing_notebooks">Error listing notebooks</string>
+    <string name="empty_content_error">Note title and content cannot be empty</string>
+    <string name="ok">OK</string>
+    <string name="esdk__evernote">Evernote</string>
+    <string name="esdk__evernote_login_failed">Evernote Login Failed</string>
+    <string name="esdk__evernote_login_successful">Evernote login successful</string>
+    <string name="esdk__err_protocol_version">Incomatible EDAM client protocol version</string>
+    <string name="esdk__err_authentication">Error authenticating to Evernote</string>
+    <string name="esdk__err_api_setup">Error intializing Evernote API</string>
+    <string name="esdk__loading">Loading&#8230;</string>
+</resources>

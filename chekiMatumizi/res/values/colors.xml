@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Initialization of the colors to be used in the application -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#00ff00</color>
+    <color name="black">#000000</color>
+    <color name="grey">#CCCCCC</color>
+    <color name="piche">#94D89C</color>
+</resources>

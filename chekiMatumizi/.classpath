@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="E:/jars/apache-logging-log4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/jars/libthrift-0.9.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/jars/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/jars/slf4j-api-1.7.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/jars/slf4j-log4j12-1.7.0.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
