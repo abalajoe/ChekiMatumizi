@@ -7,62 +7,69 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
+
 import com.evernote.client.android.AsyncLinkedNoteStoreClient;
 import com.evernote.client.android.EvernoteSession;
 import com.evernote.client.android.OnClientCallback;
 import com.evernote.edam.type.LinkedNotebook;
 import com.evernote.edam.type.Note;
 import com.evernote.thrift.transport.TTransportException;
-import com.example.evernotempesa.R;
+import com.example.chekimatumizi.R;
+
 import java.util.List;
+import java.util.Properties;
 
 /**
- * This is the parent activity that all sample activites extend from. This creates the Evernote Session in onCreate
- * and stores the CONSUMER_KEY and CONSUMER_SECRET
- *
- * In this example, it also takes care of dialogs
+ * This class creates the Evernote Session in onCreate
+ * and stores the consumer key and consumer secret.
+ * It also takes care of dialogs
  */
 public class ParentActivity extends Activity {
 
-  private static final String LOGTAG = "ParentActivity";
+  // Logging
+  private static final String LOG = "ParentActivity";
+  
+  // consumer key and secret
+  private String consumerKey;
+  private String consumerSecret;
+  
+  // read configuration
+  private ConfigurationReader configurationReader;
+  private Properties properties;
 
-
-  /**
-   * ************************************************************************
-   * You MUST change the following values to run this sample application.    *
-   * *************************************************************************
-   */
-
-  // Your Evernote API key. See http://dev.evernote.com/documentation/cloud/
-  // Please obfuscate your code to help keep these values secret.
-  private static final String CONSUMER_KEY = "joeabala";
-  private static final String CONSUMER_SECRET = "7a3a347b4499d7ac";
-
-    // Initial development is done on Evernote's testing service, the sandbox.
-  // Change to HOST_PRODUCTION to use the Evernote production service
-  // once your code is complete, or HOST_CHINA to use the Yinxiang Biji
-  // (Evernote China) production service.
+  //EVERNOTE testing service
   private static final EvernoteSession.EvernoteService EVERNOTE_SERVICE = EvernoteSession.EvernoteService.SANDBOX;
 
   // Set this to true if you want to allow linked notebooks for accounts that can only access a single
   // notebook.
   private static final boolean SUPPORT_APP_LINKED_NOTEBOOKS = true;
 
-  /**
-   * ************************************************************************
-   * The following values are simply part of the demo application.           *
-   * *************************************************************************
-   */
-
+  //EVERNOTE web service API session
   protected EvernoteSession mEvernoteSession;
   protected final int DIALOG_PROGRESS = 101;
 
+  /**
+   * This method gets called on start up
+   */
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    //Set up the Evernote Singleton Session
-    mEvernoteSession = EvernoteSession.getInstance(this, CONSUMER_KEY, CONSUMER_SECRET, EVERNOTE_SERVICE, SUPPORT_APP_LINKED_NOTEBOOKS);
-  }
+    	// ConfigurationReader instance
+		configurationReader = new ConfigurationReader(getApplicationContext());
+		
+		// load configuration resource
+		properties = configurationReader.getProperties("config.properties");
+		Log.i(LOG, "configuration file loaded");
+
+		// get consumer key & secret
+		consumerKey = properties.getProperty("consumerkey");
+		consumerSecret = properties.getProperty("consumersecret");
+		Log.i(LOG, consumerKey + " " + consumerSecret);
+		
+		// Set up the Evernote Singleton Session
+		mEvernoteSession = EvernoteSession.getInstance(this, consumerKey,
+				consumerSecret, EVERNOTE_SERVICE, SUPPORT_APP_LINKED_NOTEBOOKS);
+	}
 
   // using createDialog, could use Fragments instead
   @SuppressWarnings("deprecation")
@@ -98,7 +105,7 @@ public class ParentActivity extends Activity {
         public void onSuccess(List<LinkedNotebook> linkedNotebooks) {
           // We should only have one linked notebook
           if (linkedNotebooks.size() != 1) {
-            Log.e(LOGTAG, "Error getting linked notebook - more than one linked notebook");
+            Log.e(LOG, "Error getting linked notebook - more than one linked notebook");
             callback.onException(new Exception("Not single linked notebook"));
           } else {
             final LinkedNotebook linkedNotebook = linkedNotebooks.get(0);
@@ -145,7 +152,7 @@ protected void createNoteInAppLinkedNotebook(final Note note, final OnClientCall
 
       @Override
       public void onException(Exception exception) {
-        Log.e(LOGTAG, "Error creating linked notestore", exception);
+        Log.e(LOG, "Error creating linked notestore", exception);
         Toast.makeText(getApplicationContext(), R.string.error_creating_notestore, Toast.LENGTH_LONG).show();
         removeDialog(DIALOG_PROGRESS);
       }
